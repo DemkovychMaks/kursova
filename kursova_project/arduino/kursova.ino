@@ -51,8 +51,6 @@ void loop() {
   int h = DHT.humidity; 
   
   if (t != oldTemp || h != oldHum) { 
-    oldTemp = t;
-    oldHum = h;
     
     Serial.print("New request");
     Serial.print("    ");
@@ -64,7 +62,9 @@ void loop() {
     Serial.print(h);
     Serial.print(" %");
     Serial.println("");
-    
+
+    oldTemp = t;
+    oldHum = h;
   }
   
   val1 = digitalRead(buttonPin1);
